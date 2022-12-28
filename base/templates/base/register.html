@@ -1,0 +1,28 @@
+{% extends "base/main.html" %}
+{% block content %}
+
+<div class="header-bar">
+    <h1>user registration</h1>
+</div>
+
+<hr color="#880E4F" size="2px">
+
+<div class="card-body">
+    <form method="POST">
+        {% csrf_token %}
+
+        <label><i>{{form.username.label}}:</i></label>
+        {{form.username}}
+
+        <label><i>{{form.password1.label}}:</i></label>
+        {{form.password1}}
+
+        <label><i>{{form.password2.label}}:</i></label>
+        {{form.password2}}
+
+        <input style="margin-top: 10px;" class="button" type="submit" value="Register">
+    </form>
+    <p><i>Already have an Account? <a href="{% url 'login' %}">Login</i></a></p>
+</div>
+
+{% endblock content %}

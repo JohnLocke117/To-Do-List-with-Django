@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+
+
+    <style>
+        body {
+            background: linear-gradient(90deg, #ADA996 -5%, #F2F2F2 43%, #DBDBDB 100%);
+            font-family: 'Nunito', sans-serif;
+            padding-top: 50px;
+        }
+
+        <!-- Attributes for all the Headings-->
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6
+            {
+            font-family: "Raleway", sans-serif;
+            padding-bottom: 5px;
+            text-align: left;
+        }
+
+        <!-- Attributes for Paragraphs-->
+        a,
+        p {
+            color: #D7BDE2;
+        }
+
+        label {
+            color: #D7BDE2;
+            font-size: 105%;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            font-size: 16px;
+            text-decoration-color: #D7BDE2;
+            border-radius: 60px 350px 100px 15px;
+            background: linear-gradient(180deg, #41295A 5%, #880E4F 40%, #2F0743 90%);
+            -webkit-box-shadow: 70px 70px 130px 7px rgba(74, 35, 90, 1);
+            box-shadow: 70px 70px 130px 7px rgba(74, 35, 90, 1);
+        }
+
+        .container a {
+            color: #D5DBDB;
+            text-decoration: none;
+        }
+
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            color: #E1BEE7;
+            font-size: 20px;
+            text-shadow: 2px 2px #880E4F;
+            padding-left: 25px;
+            border-radius: 250px 500px 100px 0;
+            background: linear-gradient(90deg, #AD1457 0%,  #E94057 40%, #F27121 115%);
+            -webkit-box-shadow: 70px 70px 130px 7px rgba(74, 35, 90, 1);
+            box-shadow: 70px 70px 130px 7px rgba(74, 35, 90, 1);
+        }
+
+        .header-bar a {
+            color: #EDE7F6;
+            text-decoration: none;
+            font-size: 18px;
+            text-shadow: 2px 2px #880E4F;
+            padding: 40px;
+        }
+
+        .task-wrapper {
+            display:flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 80%;
+            border-radius: 50px 50px 50px 50px;
+            padding: 20px;
+            margin-left: 5%;
+            margin-bottom: 1%;
+            
+            background: linear-gradient(180deg, #42275A 0%, #734B6D 100%);
+            border-top: 2px solid rgba(248, 187, 208, 0.8);
+        }
+
+        .task-wrapper:hover {
+            display:flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 80%;
+            border-radius: 50px 50px 50px 50px;
+            padding: 20px;
+            margin-left: 5%;
+            margin-bottom: 1%;
+            
+            background: linear-gradient(180deg, #734B6D 0%, #42275A 100%);
+            border-top: 2px solid rgba(248, 187, 208, 0.8);
+
+            transition-duration: 0.8s;
+        }
+
+        .task-title a {
+            text-decoration: none;
+            font-size: 105%;
+            color: #F3E5F5;
+            margin-left: 35px;
+        }
+
+        .task-complete-icon {
+            height: 20px;
+            width: 20px;
+            margin-bottom: -20px;
+            background-color: #43A047;
+            border-radius: 50%;
+        }
+
+        .task-incomplete-icon {
+            height: 20px;
+            width: 20px;
+            margin-bottom: -20px;
+            background-color: #cccdd2;
+            border-radius: 50%;
+        }
+
+        .delete-link {
+            text-decoration: none;
+            font-weight: 900;
+            color: #d8d6dd;
+            font-size: 22px;
+            line-height: 0;
+        }
+
+        #search-add-wrapper {
+            margin-top: 2%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        #add-link {
+            margin-top: -2%;
+            color: #FAFAFA;
+            text-decoration: none;
+            font-size: 42px;
+            text-shadow: 1px 1px #4A235A;
+        }
+
+        input[type=text],
+        input[type=password],
+        textarea {
+            
+            font-family: 'Quicksand', sans-serif;
+            font-size: 17px;
+            background: linear-gradient(90deg, #D3CCE3 0%, #E9E4F0 100%);
+            border: 1px solid #2196F3;
+            border-radius: 25px;
+            padding: 8px;
+            padding-right: 50px;
+            width: 500px;
+        }
+
+        label {
+            padding-top: 10px !important;
+            display: block;
+        }
+
+        .button {
+            border: 1px solid #2196F3;
+            background: linear-gradient(90deg, #41295A 0%, #2F0743 100%);
+            color: #41aee4;
+            width: 80px;
+            height: 30px;
+            align-self: baseline;
+            font-size: 17px;
+            font-weight: 150;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-radius: 15px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            border: 1px solid #FAFAFA;
+            background: linear-gradient(90deg, #AA4B6B 0%, #6B6B83 43%, #3B8D99 100%);
+            color: #FAFAFA;
+            width: 80px;
+            height: 30px;
+            align-self: baseline;
+            font-size: 17px;
+            font-weight: 150;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-radius: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            transition-duration: 0.8s;
+            box-shadow: 0 2px 5px 0 #880E4F, 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        {% block content %}
+
+        {% endblock content %}
+    </div>
+</body>
+</html>
